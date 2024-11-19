@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/deanqasem/Desktop/cse382_qasemdf/FinalProject/FinalProject/bin/Debug/net7.0-ios/iossimulator-x64/FinalProject.app/libSystem.Security.Cryptography.Native.Apple.dylib

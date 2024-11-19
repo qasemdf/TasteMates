@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Views.SavedRecipesPage"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="#076ae1">
+    <VerticalStackLayout>
+    <Label Text="Click on a recipe to view or delete" FontSize="35" Margin="10,0,10,40" FontAttributes="Italic" FontFamily="fantasy"/>
+    <ScrollView>
+        <ListView x:Name="Recepies" VerticalScrollBarVisibility="Always" ItemSelected="Recepies_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#076ae1">
+                            <Label Text="{Binding StrMeal}" FontFamily="fantasy" TextColor="White" FontSize="25" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

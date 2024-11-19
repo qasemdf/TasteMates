@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.HomePage"
+             xmlns:vm="clr-namespace:FinalProject.ViewModels"
+             Title="HomePage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#076ae1">
+   <ContentPage.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="#3988e7" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Padding" Value="5,5,5,5" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Lobster-Regular"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:ContactViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label 
+            x:Name="temp"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Image Source="smallTaste.jpeg" HeightRequest="180" Margin="0,0,10,0"/>
+        <HorizontalStackLayout>
+            <Frame BorderColor="Black" HeightRequest="70" BackgroundColor="#076ae1">
+                <Entry x:Name="meal" WidthRequest="100" FontSize="15" Keyboard="Text" Placeholder="Enter Recipe" HeightRequest="100"/>
+            </Frame>
+            <Button Text="Find Recipes!!" Clicked="Button_Clicked_1" BackgroundColor="#EFEFEF" TextColor="#3988e7" Margin="10" WidthRequest="200"/>
+        </HorizontalStackLayout>
+        <ScrollView>
+        <CollectionView x:Name="cv" HeightRequest="470" WidthRequest="400" VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate x:DataType="local:MealsItem">
+                <DataTemplate>
+                <StackLayout Padding="10" BackgroundColor="#076ae1" >
+                        <Label Text="{Binding StrMeal}" FontAttributes="Bold" FontSize="28" TextColor="#333333" />
+                        <Image Source="{Binding StrMealThumb}" Aspect="AspectFill" HeightRequest="250" />
+                        <Label Text="Instructions:" FontAttributes="Bold" FontSize="18" />
+                        <Label Text="{Binding StrInstructions}" />
+                        <Label Text="Ingredients:" FontAttributes="Bold" FontSize="18"/>
+                        <Label Text="{Binding IngredientsString}" FontSize="14"  />
+                        <Button Text="Tutorial Video" Margin="20, 10" Style="{StaticResource buttonStyle}" Clicked="Button_Clicked"/>
+                        <Button Text="Save Recipe!" Margin="20, 10" Style="{StaticResource buttonStyle}" Clicked="saveButton_Clicked"/>                       
+                </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </ScrollView>
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="10,10,10,10">
+            <Button Text="Ingridents"  Clicked="FoodsPage_Clicked" Style="{StaticResource buttonStyle}"/>
+            <Button Text="Recepies"  Clicked="RecepiesPage_Clicked" Style="{StaticResource buttonStyle}"/>
+            <Button Text="Account"  Clicked="AccountPage_Clicked" Style="{StaticResource buttonStyle}"/>
+            <Button Text="Recipes Website" Style="{StaticResource buttonStyle}"  Command="{Binding OpenWebCommand} "/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

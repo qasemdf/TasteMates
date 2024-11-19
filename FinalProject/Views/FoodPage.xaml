@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.FoodPage"
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#076ae1">
+    <VerticalStackLayout>
+    <Label Text="Ingridents" FontSize="35" Margin="10,0,10,40" FontAttributes="Italic" FontFamily="fantasy" TextColor="Black"/>
+        <ListView x:Name="food1">
+            <ListView.ItemTemplate x:DataType="local:Food">
+                <DataTemplate>
+                    <ViewCell>
+                            <Label Text="{Binding Name}" WidthRequest="200"
+                                   FontSize="30" FontFamily="fantasy" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.MainPage"
+             BackgroundColor="#076ae1"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#3988e7" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+            <Setter Property="Padding" Value="5,5,5,5" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Lobster-Regular"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto, * , Auto">
+        <Image Grid.Row="0"
+               Source="tastemateslogo.jpeg"/>
+        <VerticalStackLayout Grid.Row="1" Spacing="20">
+            <Button x:Name="createAccount" Text="Create Account" Clicked="createAccount_Clicked" Style="{StaticResource buttonStyle}"/>
+            <Button x:Name="login" Text="Log in" Clicked="login_Clicked" Style="{StaticResource buttonStyle}"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
+

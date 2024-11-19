@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.loginPage"
+             Title="loginPage"
+             BackgroundColor="#076ae1"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <Style x:Key="entryStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="Margin" Value="10,10,10,10" />
+        <Setter Property="Padding" Value="5,5,5,5" />
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Lobster-Regular"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto, * , Auto">
+            <Image Grid.Row="0"
+                   Source="tastemateslogo.jpeg"/>
+            <VerticalStackLayout Grid.Row="1" Spacing="20">
+                <Entry x:Name="username" Placeholder="Username" Style="{StaticResource entryStyle}"/>
+                <Entry x:Name="pwd" Placeholder="Password" IsPassword="True"  Style="{StaticResource entryStyle}"/>
+                <Button x:Name="logIn" BackgroundColor="#3988e7" Text="Login!" Margin="5,5,5,5" Padding="10,10,10,10" Clicked="logIn_Clicked"/>
+                <Button x:Name="noAccount" BackgroundColor="#3988e7" Text="Dont have an account?" Margin="5,5,5,5" Padding="10,10,10,10" Clicked="noAccount_Clicked"/>
+            </VerticalStackLayout>
+        </Grid>
+</ContentPage>
